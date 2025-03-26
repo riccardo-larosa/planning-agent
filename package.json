@@ -1,0 +1,22 @@
+{
+  "name": "planning-agent",
+  "version": "1.0.0",
+  "description": "A TypeScript planning agent using Claude AI",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts"
+  },
+  "dependencies": {
+    "@langchain/anthropic": "^0.3.15",
+    "@langchain/core": "^0.3.43",
+    "@langchain/langgraph": "^0.2.59",
+    "dotenv": "^16.4.x"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.x",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.x"
+  }
+}
