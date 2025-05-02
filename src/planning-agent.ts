@@ -40,6 +40,15 @@ async function generateTaskList(task: string): Promise<string[]> {
       
       Provide only the tasks, one per line, without numbering or bullet points.`
     )
+    // Load API documentation
+    const apiDocsPath = path.join(__dirname, '..', 'data', 'api_docs.json')
+    let apiDocs = ''
+    try {
+      apiDocs = fs.readFileSync(apiDocsPath, 'utf8')
+      systemPrompt.content += `\n\nHere is the documentation to reference:\n${apiDocs}`
+    } catch (error) {
+      console.warn('Could not load API documentation:', error)
+    }
 
     const userPrompt = new HumanMessage(
       `Break down the following task into ${TASK_COUNT} specific, actionable subtasks: "${task}"`
